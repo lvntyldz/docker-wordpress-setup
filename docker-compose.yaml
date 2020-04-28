@@ -42,7 +42,7 @@ services:
       - db
     image: wordpress:latest
     ports:
-      - 8080:80
+      - 8082:80
       - 443:443
     restart: always
     environment:
