@@ -6,22 +6,22 @@ networks:
   wpNetwork:
 
 services:
-# DB Service
+  # DB Service
   db:
     image: mysql:5.7
     volumes:
       - wpDbData:/var/lib/mysql
     environment:
-       MYSQL_ROOT_PASSWORD: a12345
-       MYSQL_DATABASE: wordpress
-       MYSQL_USER: wpuser
-       MYSQL_PASSWORD: wppassword
+      MYSQL_ROOT_PASSWORD: a12345
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: wpuser
+      MYSQL_PASSWORD: wppassword
     ports:
       - 8889:3306
     restart: always
     networks:
       - wpNetwork
-# phpmyadmin
+  # phpmyadmin
   phpmyadmin:
     depends_on:
       - db
@@ -32,23 +32,23 @@ services:
       MYSQL_PASSWORD: wppassword
       MYSQL_ROOT_PASSWORD: a12345
     ports:
-      - 3001:80
+      - 8081:80
     restart: always
     networks:
       - wpNetwork
-# wordpress
+  # wordpress
   wordpress:
     depends_on:
       - db
     image: wordpress:latest
     ports:
-      - 8888:80
+      - 8080:80
       - 443:443
     restart: always
     environment:
-       WORDPRESS_DB_HOST: db
-       WORDPRESS_DB_USER: wpuser
-       WORDPRESS_DB_PASSWORD: wppassword
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_USER: wpuser
+      WORDPRESS_DB_PASSWORD: wppassword
     volumes: ['./:/var/www/html']
     networks:
       - wpNetwork
