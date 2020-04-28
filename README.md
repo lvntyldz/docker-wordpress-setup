@@ -18,11 +18,8 @@ $ docker-compose down --volumes
 $ docker-compose up -d
 ```
 
-### You’ll now see along with the docker-compose.yml file and in there the default WordPress files.
+> You’ll now see along with the docker-compose.yml file and in there the default WordPress files.
 
-## Accessing phpMyAdmin UI 
-http://localhost:8081
-
-## Accessing WordPress Setup
-http://localhost:8082
+##### Accessing phpMyAdmin UI : http://localhost:8081
+##### Accessing WordPress Setup : http://localhost:8082
 
